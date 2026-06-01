@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tanisha Roy — Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+ 
+  :root {
+    --ink: #0f0e0c;
+    --ink2: #3a3830;
+    --ink3: #7a7770;
+    --paper: #faf9f6;
+    --paper2: #f2f0ea;
+    --paper3: #e8e5db;
+    --accent: #1a4a2e;
+    --accent2: #2d7a4f;
+    --accent3: #e8f5ee;
+    --tag-bg: #1a4a2e;
+    --tag-txt: #e8f5ee;
+    --warn: #7a4a00;
+    --warn-bg: #fff8e8;
+    --blue: #0a3a6e;
+    --blue-bg: #e8f0fb;
+    --purple: #3a1a6e;
+    --purple-bg: #f0e8fb;
+    --coral: #6e1a1a;
+    --coral-bg: #fbe8e8;
+  }
+ 
+  html { scroll-behavior: smooth; }
+ 
+  body {
+    font-family: 'Outfit', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+ 
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--paper);
+    border-bottom: 1px solid var(--paper3);
+    padding: 0.75rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .nav-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--ink2);
+  }
+  .nav-links {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    color: var(--ink3);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.15s;
+  }
+  .nav-links a:hover { color: var(--accent2); }
+ 
+  /* ── HERO ── */
+  .hero {
+    padding: 5rem 2rem 3.5rem;
+    border-bottom: 1px solid var(--paper3);
+    position: relative;
+    overflow: hidden;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .hero::before {
+    content: 'TR';
+    position: absolute;
+    right: -2rem;
+    top: -2rem;
+    font-family: 'DM Serif Display', serif;
+    font-size: 22rem;
+    color: var(--paper3);
+    line-height: 1;
+    pointer-events: none;
+    letter-spacing: -0.05em;
+    user-select: none;
+  }
+  .hero-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    color: var(--ink3);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .hero h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(3rem, 7vw, 5rem);
+    font-weight: 400;
+    line-height: 1.05;
+    color: var(--ink);
+    margin-bottom: 0.75rem;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent2);
+  }
+  .hero-sub {
+    font-size: 1.05rem;
+    color: var(--ink2);
+    font-weight: 300;
+    margin-bottom: 2rem;
+    max-width: 600px;
+  }
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-bottom: 2rem;
+  }
+  .tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    padding: 5px 12px;
+    border-radius: 2px;
+    background: var(--tag-bg);
+    color: var(--tag-txt);
+    letter-spacing: 0.06em;
+  }
+  .tag.out {
+    background: transparent;
+    color: var(--ink2);
+    border: 1px solid var(--paper3);
+  }
+  .hero-contact {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--ink3);
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+  .hero-contact a {
+    color: var(--ink3);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.15s;
+  }
+  .hero-contact a:hover { color: var(--accent2); }
+ 
+  /* ── LAYOUT ── */
+  .container { max-width: 1100px; margin: 0 auto; padding: 2.5rem 2rem; }
+ 
+  .sec-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    color: var(--ink3);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .sec-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--paper3);
+  }
+ 
+  /* ── PROJECTS GRID ── */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 1px;
+    background: var(--paper3);
+    border: 1px solid var(--paper3);
+  }
+  .proj-card {
+    background: var(--paper);
+    padding: 1.75rem;
+    position: relative;
+    transition: background 0.15s;
+    cursor: default;
+  }
+  .proj-card:hover { background: var(--paper2); }
+  .proj-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--ink3);
+    margin-bottom: 0.75rem;
+    letter-spacing: 0.1em;
+  }
+  .proj-cat {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    padding: 3px 9px;
+    border-radius: 2px;
+    margin-bottom: 0.85rem;
+    letter-spacing: 0.06em;
+  }
+  .cat-analytics { background: var(--blue-bg); color: var(--blue); }
+  .cat-frontend  { background: var(--accent3); color: var(--accent); }
+  .cat-ai        { background: var(--purple-bg); color: var(--purple); }
+  .cat-seo       { background: var(--warn-bg); color: var(--warn); }
+  .cat-content   { background: var(--coral-bg); color: var(--coral); }
+ 
+  .proj-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 0.6rem;
+    line-height: 1.25;
+  }
+  .proj-desc {
+    font-size: 0.875rem;
+    color: var(--ink2);
+    font-weight: 300;
+    line-height: 1.6;
+    margin-bottom: 1.1rem;
+  }
+  .proj-tools {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+  .proj-tool {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    padding: 2px 8px;
+    border: 1px solid var(--paper3);
+    color: var(--ink3);
+    border-radius: 2px;
+  }
+ 
+  /* ── EXPERIENCE TIMELINE ── */
+  .exp-timeline {
+    border-left: 2px solid var(--paper3);
+    margin-left: 0.5rem;
+    padding-left: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .exp-item { position: relative; }
+  .exp-item::before {
+    content: '';
+    position: absolute;
+    left: -2.1rem;
+    top: 6px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--accent2);
+    border: 2px solid var(--paper);
+  }
+  .exp-meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--ink3);
+    letter-spacing: 0.08em;
+    margin-bottom: 0.3rem;
+  }
+  .exp-role {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.2rem;
+  }
+  .exp-org {
+    font-size: 0.875rem;
+    color: var(--accent2);
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+  }
+  .exp-bullets {
+    padding-left: 1rem;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .exp-bullets li {
+    font-size: 0.85rem;
+    color: var(--ink2);
+    font-weight: 300;
+    line-height: 1.5;
+    position: relative;
+    padding-left: 0.75rem;
+  }
+  .exp-bullets li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--ink3);
+  }
+ 
+  /* ── SKILLS ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 1rem;
+  }
+  .skill-group {
+    background: var(--paper2);
+    border: 1px solid var(--paper3);
+    border-radius: 4px;
+    padding: 1.1rem 1.25rem;
+  }
+  .skill-group-name {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    color: var(--ink3);
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+  }
+  .skill-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .skill-item {
+    font-size: 0.85rem;
+    color: var(--ink2);
+    display: flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .skill-item::before {
+    content: '';
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--accent2);
+    flex-shrink: 0;
+  }
+ 
+  /* ── ABOUT ── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+  @media (max-width: 640px) { .about-grid { grid-template-columns: 1fr; } }
+  .about-text p {
+    font-size: 0.95rem;
+    color: var(--ink2);
+    font-weight: 300;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+  }
+  .about-text p:last-child { margin-bottom: 0; }
+  .about-stats {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--paper3);
+    border: 1px solid var(--paper3);
+    align-self: start;
+  }
+  .stat-box {
+    background: var(--paper);
+    padding: 1.25rem;
+    text-align: center;
+  }
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.2rem;
+    color: var(--accent2);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+  .stat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--ink3);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+ 
+  /* ── CONTACT ── */
+  .contact-bar {
+    background: var(--accent);
+    color: var(--accent3);
+    padding: 2.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  .contact-bar h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    font-style: italic;
+  }
+  .contact-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .contact-link {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--accent3);
+    text-decoration: none;
+    padding: 8px 16px;
+    border: 1px solid rgba(232,245,238,0.3);
+    border-radius: 2px;
+    letter-spacing: 0.08em;
+    transition: background 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .contact-link:hover { background: rgba(232,245,238,0.1); }
+ 
+  /* ── FOOTER ── */
+  footer {
+    padding: 1.25rem 2rem;
+    border-top: 1px solid var(--paper3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .footer-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1rem;
+    color: var(--ink2);
+    font-style: italic;
+  }
+  .footer-copy {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--ink3);
+    letter-spacing: 0.08em;
+  }
+ 
+  /* ── RESPONSIVE ── */
+  @media (max-width: 600px) {
+    .hero::before { font-size: 12rem; }
+    nav { padding: 0.6rem 1rem; }
+    .nav-links { gap: 1rem; }
+    .container { padding: 2rem 1rem; }
+    .contact-bar { padding: 2rem 1rem; }
+    footer { padding: 1rem; }
+  }
+</style>
+</head>
+<body>
+ 
+<!-- NAV -->
+<nav>
+  <span class="nav-logo">Tanisha Roy</span>
+  <ul class="nav-links">
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+ 
+<!-- HERO -->
+<div class="hero">
+  <p class="hero-label">Portfolio · 2025</p>
+  <h1>Tanisha <em>Roy</em></h1>
+  <p class="hero-sub">Frontend Developer · AI Consultant · Web Analyst · Digital Marketer — B.Tech CSE, India</p>
+  <div class="tags">
+    <span class="tag">Frontend Dev</span>
+    <span class="tag">AI Consulting</span>
+    <span class="tag">Web Analytics</span>
+    <span class="tag">SEO</span>
+    <span class="tag">Digital Marketing</span>
+    <span class="tag out">Open to remote work</span>
+  </div>
+  <div class="hero-contact">
+    <a href="https://github.com/tanisharoy222005-collab" target="_blank">
+      <i class="ti ti-brand-github" aria-hidden="true"></i> github.com/tanisharoy222005-collab
+    </a>
+    <a href="https://linkedin.com/in/tanisha-roy" target="_blank">
+      <i class="ti ti-brand-linkedin" aria-hidden="true"></i> linkedin.com/in/tanisha-roy
+    </a>
+    <a href="mailto:tanisha@email.com">
+      <i class="ti ti-mail" aria-hidden="true"></i> tanisha@email.com
+    </a>
+    <span><i class="ti ti-map-pin" aria-hidden="true"></i> Sikkim, India</span>
+  </div>
+</div>
+ 
+<!-- PROJECTS -->
+<section id="projects" class="container">
+  <p class="sec-label">Selected projects</p>
+  <div class="projects-grid">
+ 
+    <div class="proj-card">
+      <p class="proj-num">01</p>
+      <span class="proj-cat cat-analytics">Web Analytics</span>
+      <h3 class="proj-title">Client Website Analytics Dashboard</h3>
+      <p class="proj-desc">Built a custom reporting dashboard consolidating Google Analytics 4 and Search Console data. Tracked bounce rate, session duration, goal conversions, and organic traffic trends for a client website.</p>
+      <div class="proj-tools">
+        <span class="proj-tool">Google Analytics 4</span>
+        <span class="proj-tool">Search Console</span>
+        <span class="proj-tool">Looker Studio</span>
+      </div>
+    </div>
+ 
+    <div class="proj-card">
+      <p class="proj-num">02</p>
+      <span class="proj-cat cat-frontend">Frontend Dev</span>
+      <h3 class="proj-title">Responsive Business Website</h3>
+      <p class="proj-desc">Designed and developed a fully responsive multi-page website for a small business. Implemented semantic HTML, mobile-first CSS, and JavaScript interactivity. Deployed on WordPress with a custom theme.</p>
+      <div class="proj-tools">
+        <span class="proj-tool">HTML</span>
+        <span class="proj-tool">CSS</span>
+        <span class="proj-tool">JavaScript</span>
+        <span class="proj-tool">WordPress</span>
+      </div>
+    </div>
+ 
+    <div class="proj-card">
+      <p class="proj-num">03</p>
+      <span class="proj-cat cat-ai">AI Consulting</span>
+      <h3 class="proj-title">GenAI Workflow Design — NERIST</h3>
+      <p class="proj-desc">Consulted institutional teams at NERIST on adopting GenAI tools into their content and marketing workflows. Designed prompt libraries, tool selection frameworks, and content automation pipelines.</p>
+      <div class="proj-tools">
+        <span class="proj-tool">ChatGPT</span>
+        <span class="proj-tool">Prompt Engineering</span>
+        <span class="proj-tool">AI Tool Audits</span>
+      </div>
+    </div>
+ 
+    <div class="proj-card">
+      <p class="proj-num">04</p>
+      <span class="proj-cat cat-seo">SEO</span>
+      <h3 class="proj-title">Full SEO Audit & Content Strategy</h3>
+      <p class="proj-desc">Conducted a comprehensive keyword audit, on-page SEO overhaul, and content gap analysis for a client blog. Improved search visibility and organic click-through rate over a 3-month period.</p>
+      <div class="proj-tools">
+        <span class="proj-tool">Ahrefs / SEMrush</span>
+        <span class="proj-tool">Search Console</span>
+        <span class="proj-tool">On-page SEO</span>
+      </div>
+    </div>
+ 
+    <div class="proj-card">
+      <p class="proj-num">05</p>
+      <span class="proj-cat cat-analytics">Web Analytics</span>
+      <h3 class="proj-title">Social Media Campaign Analytics</h3>
+      <p class="proj-desc">Set up UTM tracking, built performance dashboards, and delivered monthly analytics reports for social media campaigns. Identified highest-converting channels and informed budget reallocation decisions.</p>
+      <div class="proj-tools">
+        <span class="proj-tool">UTM Tracking</span>
+        <span class="proj-tool">Google Analytics</span>
+        <span class="proj-tool">Meta Insights</span>
+      </div>
+    </div>
+ 
+    <div class="proj-card">
+      <p class="proj-num">06</p>
+      <span class="proj-cat cat-ai">AI Content</span>
+      <h3 class="proj-title">AI-Assisted Content Pipeline</h3>
+      <p class="proj-desc">Built an end-to-end GenAI content workflow for a startup brand — from brief generation and AI drafting to SEO optimization and publishing. Reduced content production time by over 60%.</p>
+      <div class="proj-tools">
+        <span class="proj-tool">ChatGPT</span>
+        <span class="proj-tool">Jasper</span>
+        <span class="proj-tool">WordPress</span>
+        <span class="proj-tool">SEO Tools</span>
+      </div>
+    </div>
+ 
+    <div class="proj-card">
+      <p class="proj-num">07</p>
+      <span class="proj-cat cat-seo">SEO + Analytics</span>
+      <h3 class="proj-title">E-commerce Performance Optimization</h3>
+      <p class="proj-desc">Technical SEO audit and WordPress speed optimization for an e-commerce client. Improved Core Web Vitals scores, reduced page load time, and set up GA4 e-commerce event tracking.</p>
+      <div class="proj-tools">
+        <span class="proj-tool">GA4 Events</span>
+        <span class="proj-tool">Core Web Vitals</span>
+        <span class="proj-tool">WordPress</span>
+        <span class="proj-tool">GTmetrix</span>
+      </div>
+    </div>
+ 
+    <div class="proj-card">
+      <p class="proj-num">08</p>
+      <span class="proj-cat cat-analytics">Web Analytics</span>
+      <h3 class="proj-title">IOCL Operational Analytics — Internship</h3>
+      <p class="proj-desc">Supported analytics and reporting at Indian Oil Corporation Ltd. Maintained performance dashboards, contributed to operational documentation, and assisted with data-driven process tracking.</p>
+      <div class="proj-tools">
+        <span class="proj-tool">Dashboards</span>
+        <span class="proj-tool">Reporting</span>
+        <span class="proj-tool">Documentation</span>
+      </div>
+    </div>
+ 
+  </div>
+</section>
+ 
+<!-- EXPERIENCE -->
+<section id="experience" class="container" style="padding-top: 0;">
+  <p class="sec-label">Experience</p>
+  <div class="exp-timeline">
+ 
+    <div class="exp-item">
+      <p class="exp-meta">Jan 2026 – Jul 2026</p>
+      <p class="exp-role">AI Consultant & Content Specialist</p>
+      <p class="exp-org">AI Work Mackaut · NERIST, Arunachal Pradesh</p>
+      <ul class="exp-bullets">
+        <li>Provided AI consultancy to institutional teams on integrating GenAI tools into workflows</li>
+        <li>Advised on prompt engineering, AI tool selection, and content automation strategies</li>
+        <li>Developed AI-assisted content strategies for academic and institutional campaigns</li>
+        <li>Supported SEO research, digital outreach, and performance tracking</li>
+      </ul>
+    </div>
+ 
+    <div class="exp-item">
+      <p class="exp-meta">May 2025 – Jul 2025</p>
+      <p class="exp-role">AI Consultant & Content Specialist</p>
+      <p class="exp-org">AI Work Mackaut · NERIST, Arunachal Pradesh</p>
+      <ul class="exp-bullets">
+        <li>Consulted on AI tool adoption and GenAI workflow design for institutional marketing</li>
+        <li>Applied ChatGPT and AI tools for content generation, copywriting, and automation</li>
+        <li>Assisted in digital marketing campaigns, keyword research, and content planning</li>
+      </ul>
+    </div>
+ 
+    <div class="exp-item">
+      <p class="exp-meta">2024 · 3 months</p>
+      <p class="exp-role">Analytics & Reporting Intern</p>
+      <p class="exp-org">Indian Oil Corporation Ltd (IOCL)</p>
+      <ul class="exp-bullets">
+        <li>Assisted with reporting and documentation in an operational analytics environment</li>
+        <li>Supported performance tracking using operational dashboards</li>
+        <li>Contributed to documentation and process optimization workflows</li>
+      </ul>
+    </div>
+ 
+    <div class="exp-item">
+      <p class="exp-meta">2023 – Present</p>
+      <p class="exp-role">Freelance Frontend Developer & Digital Marketing Specialist</p>
+      <p class="exp-org">Self-Employed</p>
+      <ul class="exp-bullets">
+        <li>Designed and developed responsive frontend interfaces using HTML, CSS, and JavaScript</li>
+        <li>Built and customized WordPress websites with SEO best practices</li>
+        <li>Managed social media content, email campaigns, and analytics reporting for clients</li>
+        <li>Produced AI-assisted blog and marketing content using ChatGPT and GenAI workflows</li>
+      </ul>
+    </div>
+ 
+  </div>
+</section>
+ 
+<!-- SKILLS -->
+<section id="skills" class="container" style="padding-top: 0;">
+  <p class="sec-label">Skills</p>
+  <div class="skills-grid">
+ 
+    <div class="skill-group">
+      <p class="skill-group-name">Web Analytics</p>
+      <div class="skill-list">
+        <span class="skill-item">Google Analytics 4</span>
+        <span class="skill-item">Search Console</span>
+        <span class="skill-item">Looker Studio</span>
+        <span class="skill-item">UTM Tracking</span>
+        <span class="skill-item">Core Web Vitals</span>
+      </div>
+    </div>
+ 
+    <div class="skill-group">
+      <p class="skill-group-name">Frontend Dev</p>
+      <div class="skill-list">
+        <span class="skill-item">HTML / CSS</span>
+        <span class="skill-item">JavaScript</span>
+        <span class="skill-item">Responsive Design</span>
+        <span class="skill-item">WordPress</span>
+        <span class="skill-item">Website Optimization</span>
+      </div>
+    </div>
+ 
+    <div class="skill-group">
+      <p class="skill-group-name">AI & Content</p>
+      <div class="skill-list">
+        <span class="skill-item">AI Consulting</span>
+        <span class="skill-item">Prompt Engineering</span>
+        <span class="skill-item">ChatGPT / GenAI</span>
+        <span class="skill-item">Content Writing</span>
+        <span class="skill-item">Blog / SEO Writing</span>
+      </div>
+    </div>
+ 
+    <div class="skill-group">
+      <p class="skill-group-name">Marketing & SEO</p>
+      <div class="skill-list">
+        <span class="skill-item">On-page SEO</span>
+        <span class="skill-item">Keyword Research</span>
+        <span class="skill-item">Social Media Mktg</span>
+        <span class="skill-item">Email Marketing</span>
+        <span class="skill-item">Google Ads</span>
+      </div>
+    </div>
+ 
+    <div class="skill-group">
+      <p class="skill-group-name">Tools</p>
+      <div class="skill-list">
+        <span class="skill-item">Python</span>
+        <span class="skill-item">GTmetrix</span>
+        <span class="skill-item">Ahrefs / SEMrush</span>
+        <span class="skill-item">Canva</span>
+        <span class="skill-item">Meta Business Suite</span>
+      </div>
+    </div>
+ 
+  </div>
+</section>
+ 
+<!-- ABOUT -->
+<section id="about" class="container" style="padding-top: 0;">
+  <p class="sec-label">About</p>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>Hi, I'm Tanisha Roy — a B.Tech Computer Science student from India working at the intersection of frontend development, web analytics, AI consulting, and digital marketing.</p>
+      <p>I've served as an AI Consultant at NERIST through AI Work Mackaut across two terms, advising institutional teams on GenAI tool adoption, prompt engineering, and content automation. I also completed an internship at Indian Oil Corporation Ltd in analytics and reporting.</p>
+      <p>As a freelance developer and marketer since 2023, I build responsive web interfaces and deliver end-to-end digital solutions — from UI design and WordPress development to SEO audits, analytics setup, and AI content workflows.</p>
+      <p>My Computer Science background lets me bridge the technical and creative sides of every project. I'm available for remote, part-time, and project-based work.</p>
+    </div>
+    <div class="about-stats">
+      <div class="stat-box">
+        <p class="stat-num">2+</p>
+        <p class="stat-label">Years freelance</p>
+      </div>
+      <div class="stat-box">
+        <p class="stat-num">8</p>
+        <p class="stat-label">Projects</p>
+      </div>
+      <div class="stat-box">
+        <p class="stat-num">2</p>
+        <p class="stat-label">Internships</p>
+      </div>
+      <div class="stat-box">
+        <p class="stat-num">4</p>
+        <p class="stat-label">Skill domains</p>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<!-- CONTACT -->
+<div id="contact" class="contact-bar">
+  <h2>Let's work together.</h2>
+  <div class="contact-links">
+    <a class="contact-link" href="mailto:tanisha@email.com">
+      <i class="ti ti-mail" aria-hidden="true"></i> Email me
+    </a>
+    <a class="contact-link" href="https://linkedin.com/in/tanisha-roy" target="_blank">
+      <i class="ti ti-brand-linkedin" aria-hidden="true"></i> LinkedIn
+    </a>
+    <a class="contact-link" href="https://github.com/tanisharoy222005-collab" target="_blank">
+      <i class="ti ti-brand-github" aria-hidden="true"></i> GitHub
+    </a>
+  </div>
+</div>
+ 
+<!-- FOOTER -->
+<footer>
+  <span class="footer-name">Tanisha Roy · 2025</span>
+  <span class="footer-copy">Frontend Dev · AI Consultant · Web Analyst</span>
+</footer>
+ 
+</body>
+</html>
