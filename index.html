@@ -3,793 +3,1114 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tanisha Roy — Portfolio</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<title>Tanisha Roy — Software Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
- 
   :root {
-    --ink: #0f0e0c;
-    --ink2: #3a3830;
-    --ink3: #7a7770;
-    --paper: #faf9f6;
-    --paper2: #f2f0ea;
-    --paper3: #e8e5db;
-    --accent: #1a4a2e;
-    --accent2: #2d7a4f;
-    --accent3: #e8f5ee;
-    --tag-bg: #1a4a2e;
-    --tag-txt: #e8f5ee;
-    --warn: #7a4a00;
-    --warn-bg: #fff8e8;
-    --blue: #0a3a6e;
-    --blue-bg: #e8f0fb;
-    --purple: #3a1a6e;
-    --purple-bg: #f0e8fb;
-    --coral: #6e1a1a;
-    --coral-bg: #fbe8e8;
+    --marble-white: #f8f6f2;
+    --marble-cream: #ede9e0;
+    --marble-vein-light: #d6cfc4;
+    --marble-vein: #b8ae9e;
+    --marble-dark: #2a2520;
+    --marble-charcoal: #3d3830;
+    --marble-mid: #6b6158;
+    --gold: #b8956a;
+    --gold-light: #d4b48c;
+    --gold-pale: #f0e6d3;
+    --accent-dark: #1a1612;
   }
- 
-  html { scroll-behavior: smooth; }
- 
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
   body {
+    background: var(--marble-white);
+    color: var(--marble-dark);
     font-family: 'Outfit', sans-serif;
-    background: var(--paper);
-    color: var(--ink);
-    line-height: 1.6;
-    min-height: 100vh;
+    font-weight: 300;
+    overflow-x: hidden;
   }
- 
-  /* ── NAV ── */
+
+  /* Marble texture SVG background */
+  .marble-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.4;
+    background:
+      repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 120px,
+        rgba(184,174,158,0.08) 120px,
+        rgba(184,174,158,0.08) 121px
+      ),
+      repeating-linear-gradient(
+        30deg,
+        transparent,
+        transparent 200px,
+        rgba(184,174,158,0.06) 200px,
+        rgba(184,174,158,0.06) 201px
+      );
+  }
+
+  /* ─── NAV ─── */
   nav {
-    position: sticky;
-    top: 0;
+    position: fixed;
+    top: 0; left: 0; right: 0;
     z-index: 100;
-    background: var(--paper);
-    border-bottom: 1px solid var(--paper3);
-    padding: 0.75rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 1.4rem 4rem;
+    background: rgba(248,246,242,0.92);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--marble-vein-light);
   }
+
   .nav-logo {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.1rem;
-    font-style: italic;
-    color: var(--ink2);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--marble-dark);
+    text-transform: uppercase;
   }
+
   .nav-links {
     display: flex;
-    gap: 1.5rem;
+    gap: 2.5rem;
     list-style: none;
   }
+
   .nav-links a {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    color: var(--ink3);
-    text-decoration: none;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
     text-transform: uppercase;
-    transition: color 0.15s;
+    color: var(--marble-mid);
+    text-decoration: none;
+    transition: color 0.3s;
   }
-  .nav-links a:hover { color: var(--accent2); }
- 
-  /* ── HERO ── */
+
+  .nav-links a:hover { color: var(--gold); }
+
+  /* ─── HERO ─── */
   .hero {
-    padding: 5rem 2rem 3.5rem;
-    border-bottom: 1px solid var(--paper3);
     position: relative;
+    z-index: 1;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 0 4rem;
     overflow: hidden;
-    max-width: 1100px;
-    margin: 0 auto;
   }
-  .hero::before {
-    content: 'TR';
+
+  .hero-marble-slab {
     position: absolute;
-    right: -2rem;
-    top: -2rem;
-    font-family: 'DM Serif Display', serif;
-    font-size: 22rem;
-    color: var(--paper3);
+    right: -6%;
+    top: 0;
+    bottom: 0;
+    width: 52%;
+    background: linear-gradient(135deg, #e8e2d6 0%, #d4ccc0 30%, #c8bfb0 60%, #b8ae9e 100%);
+    clip-path: polygon(8% 0, 100% 0, 100% 100%, 0% 100%);
+  }
+
+  .hero-marble-slab::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      repeating-linear-gradient(-55deg, transparent, transparent 80px, rgba(255,255,255,0.12) 80px, rgba(255,255,255,0.12) 81px),
+      repeating-linear-gradient(20deg, transparent, transparent 150px, rgba(0,0,0,0.04) 150px, rgba(0,0,0,0.04) 151px);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 560px;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.68rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.2rem, 6vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    color: var(--marble-dark);
+    margin-bottom: 0.4rem;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--marble-mid);
+  }
+
+  .hero-title-badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--marble-charcoal);
+    border: 1px solid var(--marble-vein);
+    padding: 0.45rem 1.2rem;
+    margin: 1.6rem 0 2rem;
+  }
+
+  .hero-summary {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--marble-mid);
+    max-width: 440px;
+    margin-bottom: 2.8rem;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--marble-dark);
+    color: var(--marble-white);
+    font-family: 'Outfit', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1rem 2.2rem;
+    transition: background 0.3s, transform 0.2s;
+  }
+
+  .btn-primary:hover { background: var(--gold); transform: translateY(-1px); }
+
+  .btn-secondary {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--marble-mid);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.3s;
+  }
+
+  .btn-secondary:hover { color: var(--gold); }
+
+  .hero-stats {
+    position: absolute;
+    bottom: 4rem;
+    right: 4rem;
+    z-index: 2;
+    display: flex;
+    gap: 3rem;
+  }
+
+  .stat-item { text-align: center; }
+
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.4rem;
+    font-weight: 300;
+    color: var(--marble-dark);
     line-height: 1;
-    pointer-events: none;
-    letter-spacing: -0.05em;
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--marble-mid);
+    margin-top: 0.3rem;
+    display: block;
+  }
+
+  /* ─── SECTION SHARED ─── */
+  section {
+    position: relative;
+    z-index: 1;
+    padding: 7rem 4rem;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: flex-end;
+    gap: 2rem;
+    margin-bottom: 4rem;
+  }
+
+  .section-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem;
+    font-weight: 300;
+    color: var(--marble-cream);
+    line-height: 1;
+    flex-shrink: 0;
     user-select: none;
   }
-  .hero-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.18em;
-    color: var(--ink3);
+
+  .section-title-group {}
+
+  .section-eyebrow {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
     text-transform: uppercase;
-    margin-bottom: 1rem;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
   }
-  .hero h1 {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(3rem, 7vw, 5rem);
-    font-weight: 400;
-    line-height: 1.05;
-    color: var(--ink);
-    margin-bottom: 0.75rem;
-  }
-  .hero h1 em {
-    font-style: italic;
-    color: var(--accent2);
-  }
-  .hero-sub {
-    font-size: 1.05rem;
-    color: var(--ink2);
+
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
     font-weight: 300;
-    margin-bottom: 2rem;
-    max-width: 600px;
+    letter-spacing: 0.02em;
+    color: var(--marble-dark);
   }
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 7px;
-    margin-bottom: 2rem;
-  }
-  .tag {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    padding: 5px 12px;
-    border-radius: 2px;
-    background: var(--tag-bg);
-    color: var(--tag-txt);
-    letter-spacing: 0.06em;
-  }
-  .tag.out {
-    background: transparent;
-    color: var(--ink2);
-    border: 1px solid var(--paper3);
-  }
-  .hero-contact {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    color: var(--ink3);
-    display: flex;
-    gap: 2rem;
-    flex-wrap: wrap;
-  }
-  .hero-contact a {
-    color: var(--ink3);
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    transition: color 0.15s;
-  }
-  .hero-contact a:hover { color: var(--accent2); }
- 
-  /* ── LAYOUT ── */
-  .container { max-width: 1100px; margin: 0 auto; padding: 2.5rem 2rem; }
- 
-  .sec-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.22em;
-    color: var(--ink3);
-    text-transform: uppercase;
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-  .sec-label::after {
-    content: '';
+
+  .divider-line {
     flex: 1;
     height: 1px;
-    background: var(--paper3);
-  }
- 
-  /* ── PROJECTS GRID ── */
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-    gap: 1px;
-    background: var(--paper3);
-    border: 1px solid var(--paper3);
-  }
-  .proj-card {
-    background: var(--paper);
-    padding: 1.75rem;
-    position: relative;
-    transition: background 0.15s;
-    cursor: default;
-  }
-  .proj-card:hover { background: var(--paper2); }
-  .proj-num {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    color: var(--ink3);
-    margin-bottom: 0.75rem;
-    letter-spacing: 0.1em;
-  }
-  .proj-cat {
-    display: inline-block;
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    padding: 3px 9px;
-    border-radius: 2px;
-    margin-bottom: 0.85rem;
-    letter-spacing: 0.06em;
-  }
-  .cat-analytics { background: var(--blue-bg); color: var(--blue); }
-  .cat-frontend  { background: var(--accent3); color: var(--accent); }
-  .cat-ai        { background: var(--purple-bg); color: var(--purple); }
-  .cat-seo       { background: var(--warn-bg); color: var(--warn); }
-  .cat-content   { background: var(--coral-bg); color: var(--coral); }
- 
-  .proj-title {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.25rem;
-    font-weight: 400;
-    color: var(--ink);
+    background: linear-gradient(90deg, var(--marble-vein-light), transparent);
     margin-bottom: 0.6rem;
-    line-height: 1.25;
   }
-  .proj-desc {
-    font-size: 0.875rem;
-    color: var(--ink2);
-    font-weight: 300;
-    line-height: 1.6;
-    margin-bottom: 1.1rem;
+
+  /* ─── ABOUT / SKILLS ─── */
+  .about-section {
+    background: var(--marble-dark);
+    color: var(--marble-white);
   }
-  .proj-tools {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 5px;
-  }
-  .proj-tool {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    padding: 2px 8px;
-    border: 1px solid var(--paper3);
-    color: var(--ink3);
-    border-radius: 2px;
-  }
- 
-  /* ── EXPERIENCE TIMELINE ── */
-  .exp-timeline {
-    border-left: 2px solid var(--paper3);
-    margin-left: 0.5rem;
-    padding-left: 1.75rem;
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-  .exp-item { position: relative; }
-  .exp-item::before {
-    content: '';
-    position: absolute;
-    left: -2.1rem;
-    top: 6px;
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    background: var(--accent2);
-    border: 2px solid var(--paper);
-  }
-  .exp-meta {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    color: var(--ink3);
-    letter-spacing: 0.08em;
-    margin-bottom: 0.3rem;
-  }
-  .exp-role {
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--ink);
-    margin-bottom: 0.2rem;
-  }
-  .exp-org {
-    font-size: 0.875rem;
-    color: var(--accent2);
-    font-weight: 400;
-    margin-bottom: 0.5rem;
-  }
-  .exp-bullets {
-    padding-left: 1rem;
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-  }
-  .exp-bullets li {
-    font-size: 0.85rem;
-    color: var(--ink2);
-    font-weight: 300;
-    line-height: 1.5;
-    position: relative;
-    padding-left: 0.75rem;
-  }
-  .exp-bullets li::before {
-    content: '–';
-    position: absolute;
-    left: 0;
-    color: var(--ink3);
-  }
- 
-  /* ── SKILLS ── */
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-    gap: 1rem;
-  }
-  .skill-group {
-    background: var(--paper2);
-    border: 1px solid var(--paper3);
-    border-radius: 4px;
-    padding: 1.1rem 1.25rem;
-  }
-  .skill-group-name {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.14em;
-    color: var(--ink3);
-    margin-bottom: 0.75rem;
-    text-transform: uppercase;
-  }
-  .skill-list {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-  .skill-item {
-    font-size: 0.85rem;
-    color: var(--ink2);
-    display: flex;
-    align-items: center;
-    gap: 7px;
-  }
-  .skill-item::before {
-    content: '';
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background: var(--accent2);
-    flex-shrink: 0;
-  }
- 
-  /* ── ABOUT ── */
+
+  .about-section .section-number { color: #3d3830; }
+  .about-section h2 { color: var(--marble-white); }
+  .about-section .section-eyebrow { color: var(--gold-light); }
+
   .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    gap: 5rem;
     align-items: start;
   }
-  @media (max-width: 640px) { .about-grid { grid-template-columns: 1fr; } }
-  .about-text p {
-    font-size: 0.95rem;
-    color: var(--ink2);
-    font-weight: 300;
-    line-height: 1.8;
-    margin-bottom: 1rem;
+
+  .about-text {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--marble-vein-light);
   }
-  .about-text p:last-child { margin-bottom: 0; }
-  .about-stats {
+
+  .about-text p + p { margin-top: 1.2rem; }
+
+  .skills-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1px;
-    background: var(--paper3);
-    border: 1px solid var(--paper3);
-    align-self: start;
-  }
-  .stat-box {
-    background: var(--paper);
-    padding: 1.25rem;
-    text-align: center;
-  }
-  .stat-num {
-    font-family: 'DM Serif Display', serif;
-    font-size: 2.2rem;
-    color: var(--accent2);
-    line-height: 1;
-    margin-bottom: 0.25rem;
-  }
-  .stat-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    color: var(--ink3);
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-  }
- 
-  /* ── CONTACT ── */
-  .contact-bar {
-    background: var(--accent);
-    color: var(--accent3);
-    padding: 2.5rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
     gap: 1.5rem;
   }
-  .contact-bar h2 {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.8rem;
-    font-weight: 400;
-    font-style: italic;
+
+  .skill-card {
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 1.4rem;
+    background: rgba(255,255,255,0.03);
+    transition: border-color 0.3s, background 0.3s;
   }
-  .contact-links {
+
+  .skill-card:hover {
+    border-color: rgba(184,149,106,0.4);
+    background: rgba(184,149,106,0.05);
+  }
+
+  .skill-category {
+    font-size: 0.6rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.6rem;
+  }
+
+  .skill-tags {
     display: flex;
-    gap: 1rem;
     flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
   }
-  .contact-link {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    color: var(--accent3);
-    text-decoration: none;
-    padding: 8px 16px;
-    border: 1px solid rgba(232,245,238,0.3);
-    border-radius: 2px;
-    letter-spacing: 0.08em;
-    transition: background 0.15s;
+
+  .skill-tag {
+    font-size: 0.72rem;
+    color: var(--marble-vein-light);
+    background: rgba(255,255,255,0.06);
+    padding: 0.25rem 0.7rem;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  /* ─── EXPERIENCE ─── */
+  .experience-section { background: var(--marble-white); }
+
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 3rem;
+    padding: 2.8rem 0;
+    border-bottom: 1px solid var(--marble-cream);
+    position: relative;
+  }
+
+  .timeline-item:last-child { border-bottom: none; }
+
+  .timeline-left {}
+
+  .timeline-date {
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
+  }
+
+  .timeline-company {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--marble-mid);
+    line-height: 1.4;
+  }
+
+  .timeline-right {}
+
+  .timeline-role {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--marble-dark);
+    margin-bottom: 1rem;
+  }
+
+  .timeline-points {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .timeline-points li {
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: var(--marble-mid);
+    padding-left: 1.2rem;
+    position: relative;
+  }
+
+  .timeline-points li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 0.8rem;
+  }
+
+  .timeline-tag {
+    display: inline-block;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid var(--gold-pale);
+    background: var(--gold-pale);
+    padding: 0.2rem 0.6rem;
+    margin-bottom: 0.8rem;
+  }
+
+  /* ─── PROJECTS ─── */
+  .projects-section {
+    background: #f0ece4;
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: var(--marble-vein-light);
+    border: 1.5px solid var(--marble-vein-light);
+  }
+
+  .project-card {
+    background: var(--marble-white);
+    padding: 2.4rem 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    transition: background 0.3s;
+  }
+
+  .project-card:hover { background: #fdfcf8; }
+
+  .project-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: var(--marble-cream);
+    line-height: 1;
+  }
+
+  .project-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--marble-dark);
+    line-height: 1.2;
+  }
+
+  .project-desc {
+    font-size: 0.85rem;
+    line-height: 1.7;
+    color: var(--marble-mid);
+    flex: 1;
+  }
+
+  .project-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 0.4rem;
+  }
+
+  .stack-tag {
+    font-size: 0.62rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--marble-mid);
+    border: 1px solid var(--marble-vein-light);
+    padding: 0.25rem 0.65rem;
+    background: var(--marble-cream);
+  }
+
+  .project-type {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: -0.2rem;
+  }
+
+  /* ─── EDUCATION ─── */
+  .education-section {
+    background: var(--marble-dark);
+  }
+
+  .education-section h2 { color: var(--marble-white); }
+  .education-section .section-eyebrow { color: var(--gold-light); }
+  .education-section .section-number { color: #3d3830; }
+
+  .edu-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    border: 1px solid rgba(255,255,255,0.07);
+    padding: 3rem;
+    background: rgba(255,255,255,0.02);
+  }
+
+  .edu-degree {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--marble-white);
+    line-height: 1.2;
+    margin-bottom: 0.8rem;
+  }
+
+  .edu-institution {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--gold-light);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.4rem;
+  }
+
+  .edu-year {
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--marble-mid);
+  }
+
+  .edu-courses {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .edu-courses-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.6rem;
+  }
+
+  .course-item {
+    font-size: 0.82rem;
+    color: var(--marble-vein-light);
+    padding-left: 1rem;
+    position: relative;
+  }
+
+  .course-item::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+  }
+
+  /* ─── CONTACT ─── */
+  .contact-section {
+    background: var(--marble-white);
+    text-align: center;
+    padding: 8rem 4rem;
+  }
+
+  .contact-eyebrow {
+    font-size: 0.65rem;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.2rem;
     display: flex;
     align-items: center;
-    gap: 6px;
+    justify-content: center;
+    gap: 1rem;
   }
-  .contact-link:hover { background: rgba(232,245,238,0.1); }
- 
-  /* ── FOOTER ── */
+
+  .contact-eyebrow::before,
+  .contact-eyebrow::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+  }
+
+  .contact-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 300;
+    color: var(--marble-dark);
+    margin-bottom: 1.2rem;
+    line-height: 1.1;
+  }
+
+  .contact-sub {
+    font-size: 0.95rem;
+    color: var(--marble-mid);
+    margin-bottom: 3rem;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+  }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .contact-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    text-decoration: none;
+    transition: transform 0.2s;
+  }
+
+  .contact-link:hover { transform: translateY(-3px); }
+
+  .contact-link-label {
+    font-size: 0.58rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  .contact-link-value {
+    font-size: 0.88rem;
+    color: var(--marble-dark);
+    font-weight: 400;
+  }
+
+  /* ─── FOOTER ─── */
   footer {
-    padding: 1.25rem 2rem;
-    border-top: 1px solid var(--paper3);
+    background: var(--accent-dark);
+    padding: 2rem 4rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    max-width: 1100px;
-    margin: 0 auto;
+    position: relative;
+    z-index: 1;
   }
+
   .footer-name {
-    font-family: 'DM Serif Display', serif;
+    font-family: 'Cormorant Garamond', serif;
     font-size: 1rem;
-    color: var(--ink2);
-    font-style: italic;
+    font-weight: 300;
+    color: var(--marble-vein);
+    letter-spacing: 0.1em;
   }
-  .footer-copy {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    color: var(--ink3);
-    letter-spacing: 0.08em;
+
+  .footer-note {
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--marble-charcoal);
   }
- 
-  /* ── RESPONSIVE ── */
-  @media (max-width: 600px) {
-    .hero::before { font-size: 12rem; }
-    nav { padding: 0.6rem 1rem; }
-    .nav-links { gap: 1rem; }
-    .container { padding: 2rem 1rem; }
-    .contact-bar { padding: 2rem 1rem; }
-    footer { padding: 1rem; }
+
+  /* ─── ANIMATIONS ─── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 900px) {
+    nav { padding: 1.2rem 2rem; }
+    section { padding: 5rem 2rem; }
+    .hero { padding: 0 2rem; min-height: auto; padding-top: 10rem; padding-bottom: 5rem; }
+    .hero-marble-slab { display: none; }
+    .about-grid, .timeline-item { grid-template-columns: 1fr; gap: 2rem; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .edu-card { grid-template-columns: 1fr; gap: 2rem; }
+    .hero-stats { position: static; margin-top: 3rem; }
+    footer { flex-direction: column; gap: 0.8rem; text-align: center; }
   }
 </style>
 </head>
 <body>
- 
+
+<div class="marble-bg"></div>
+
 <!-- NAV -->
 <nav>
-  <span class="nav-logo">Tanisha Roy</span>
+  <div class="nav-logo">Tanisha Roy</div>
   <ul class="nav-links">
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#skills">Skills</a></li>
     <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#education">Education</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
- 
+
 <!-- HERO -->
-<div class="hero">
-  <p class="hero-label">Portfolio · 2025</p>
-  <h1>Tanisha <em>Roy</em></h1>
-  <p class="hero-sub">Frontend Developer · AI Consultant · Web Analyst · Digital Marketer — B.Tech CSE, India</p>
-  <div class="tags">
-    <span class="tag">Frontend Dev</span>
-    <span class="tag">AI Consulting</span>
-    <span class="tag">Web Analytics</span>
-    <span class="tag">SEO</span>
-    <span class="tag">Digital Marketing</span>
-    <span class="tag out">Open to remote work</span>
+<section class="hero" id="home">
+  <div class="hero-marble-slab"></div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">Software Engineer</div>
+    <h1>Tanisha<br><em>Roy</em></h1>
+    <div class="hero-title-badge">Full Stack &nbsp;·&nbsp; AI/ML &nbsp;·&nbsp; Web3</div>
+    <p class="hero-summary">
+      Building production-grade web products at the intersection of elegant frontend architecture, intelligent backends, and emerging Web3 technologies.
+    </p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn-primary">View Projects</a>
+      <a href="#contact" class="btn-secondary">Get in Touch &nbsp;→</a>
+    </div>
   </div>
-  <div class="hero-contact">
-    <a href="https://github.com/tanisharoy222005-collab" target="_blank">
-      <i class="ti ti-brand-github" aria-hidden="true"></i> github.com/tanisharoy222005-collab
-    </a>
-    <a href="https://linkedin.com/in/tanisha-roy" target="_blank">
-      <i class="ti ti-brand-linkedin" aria-hidden="true"></i> linkedin.com/in/tanisha-roy
-    </a>
-    <a href="mailto:tanisha@email.com">
-      <i class="ti ti-mail" aria-hidden="true"></i> tanisha@email.com
-    </a>
-    <span><i class="ti ti-map-pin" aria-hidden="true"></i> Sikkim, India</span>
-  </div>
-</div>
- 
-<!-- PROJECTS -->
-<section id="projects" class="container">
-  <p class="sec-label">Selected projects</p>
-  <div class="projects-grid">
- 
-    <div class="proj-card">
-      <p class="proj-num">01</p>
-      <span class="proj-cat cat-analytics">Web Analytics</span>
-      <h3 class="proj-title">Client Website Analytics Dashboard</h3>
-      <p class="proj-desc">Built a custom reporting dashboard consolidating Google Analytics 4 and Search Console data. Tracked bounce rate, session duration, goal conversions, and organic traffic trends for a client website.</p>
-      <div class="proj-tools">
-        <span class="proj-tool">Google Analytics 4</span>
-        <span class="proj-tool">Search Console</span>
-        <span class="proj-tool">Looker Studio</span>
-      </div>
+
+  <div class="hero-stats">
+    <div class="stat-item">
+      <span class="stat-num">3</span>
+      <span class="stat-label">Internships</span>
     </div>
- 
-    <div class="proj-card">
-      <p class="proj-num">02</p>
-      <span class="proj-cat cat-frontend">Frontend Dev</span>
-      <h3 class="proj-title">Responsive Business Website</h3>
-      <p class="proj-desc">Designed and developed a fully responsive multi-page website for a small business. Implemented semantic HTML, mobile-first CSS, and JavaScript interactivity. Deployed on WordPress with a custom theme.</p>
-      <div class="proj-tools">
-        <span class="proj-tool">HTML</span>
-        <span class="proj-tool">CSS</span>
-        <span class="proj-tool">JavaScript</span>
-        <span class="proj-tool">WordPress</span>
-      </div>
+    <div class="stat-item">
+      <span class="stat-num">5+</span>
+      <span class="stat-label">Products Shipped</span>
     </div>
- 
-    <div class="proj-card">
-      <p class="proj-num">03</p>
-      <span class="proj-cat cat-ai">AI Consulting</span>
-      <h3 class="proj-title">GenAI Workflow Design — NERIST</h3>
-      <p class="proj-desc">Consulted institutional teams at NERIST on adopting GenAI tools into their content and marketing workflows. Designed prompt libraries, tool selection frameworks, and content automation pipelines.</p>
-      <div class="proj-tools">
-        <span class="proj-tool">ChatGPT</span>
-        <span class="proj-tool">Prompt Engineering</span>
-        <span class="proj-tool">AI Tool Audits</span>
-      </div>
-    </div>
- 
-    <div class="proj-card">
-      <p class="proj-num">04</p>
-      <span class="proj-cat cat-seo">SEO</span>
-      <h3 class="proj-title">Full SEO Audit & Content Strategy</h3>
-      <p class="proj-desc">Conducted a comprehensive keyword audit, on-page SEO overhaul, and content gap analysis for a client blog. Improved search visibility and organic click-through rate over a 3-month period.</p>
-      <div class="proj-tools">
-        <span class="proj-tool">Ahrefs / SEMrush</span>
-        <span class="proj-tool">Search Console</span>
-        <span class="proj-tool">On-page SEO</span>
-      </div>
-    </div>
- 
-    <div class="proj-card">
-      <p class="proj-num">05</p>
-      <span class="proj-cat cat-analytics">Web Analytics</span>
-      <h3 class="proj-title">Social Media Campaign Analytics</h3>
-      <p class="proj-desc">Set up UTM tracking, built performance dashboards, and delivered monthly analytics reports for social media campaigns. Identified highest-converting channels and informed budget reallocation decisions.</p>
-      <div class="proj-tools">
-        <span class="proj-tool">UTM Tracking</span>
-        <span class="proj-tool">Google Analytics</span>
-        <span class="proj-tool">Meta Insights</span>
-      </div>
-    </div>
- 
-    <div class="proj-card">
-      <p class="proj-num">06</p>
-      <span class="proj-cat cat-ai">AI Content</span>
-      <h3 class="proj-title">AI-Assisted Content Pipeline</h3>
-      <p class="proj-desc">Built an end-to-end GenAI content workflow for a startup brand — from brief generation and AI drafting to SEO optimization and publishing. Reduced content production time by over 60%.</p>
-      <div class="proj-tools">
-        <span class="proj-tool">ChatGPT</span>
-        <span class="proj-tool">Jasper</span>
-        <span class="proj-tool">WordPress</span>
-        <span class="proj-tool">SEO Tools</span>
-      </div>
-    </div>
- 
-    <div class="proj-card">
-      <p class="proj-num">07</p>
-      <span class="proj-cat cat-seo">SEO + Analytics</span>
-      <h3 class="proj-title">E-commerce Performance Optimization</h3>
-      <p class="proj-desc">Technical SEO audit and WordPress speed optimization for an e-commerce client. Improved Core Web Vitals scores, reduced page load time, and set up GA4 e-commerce event tracking.</p>
-      <div class="proj-tools">
-        <span class="proj-tool">GA4 Events</span>
-        <span class="proj-tool">Core Web Vitals</span>
-        <span class="proj-tool">WordPress</span>
-        <span class="proj-tool">GTmetrix</span>
-      </div>
-    </div>
- 
-    <div class="proj-card">
-      <p class="proj-num">08</p>
-      <span class="proj-cat cat-analytics">Web Analytics</span>
-      <h3 class="proj-title">IOCL Operational Analytics — Internship</h3>
-      <p class="proj-desc">Supported analytics and reporting at Indian Oil Corporation Ltd. Maintained performance dashboards, contributed to operational documentation, and assisted with data-driven process tracking.</p>
-      <div class="proj-tools">
-        <span class="proj-tool">Dashboards</span>
-        <span class="proj-tool">Reporting</span>
-        <span class="proj-tool">Documentation</span>
-      </div>
-    </div>
- 
+
   </div>
 </section>
- 
-<!-- EXPERIENCE -->
-<section id="experience" class="container" style="padding-top: 0;">
-  <p class="sec-label">Experience</p>
-  <div class="exp-timeline">
- 
-    <div class="exp-item">
-      <p class="exp-meta">Jan 2026 – Jul 2026</p>
-      <p class="exp-role">AI Consultant & Content Specialist</p>
-      <p class="exp-org">AI Work Mackaut · NERIST, Arunachal Pradesh</p>
-      <ul class="exp-bullets">
-        <li>Provided AI consultancy to institutional teams on integrating GenAI tools into workflows</li>
-        <li>Advised on prompt engineering, AI tool selection, and content automation strategies</li>
-        <li>Developed AI-assisted content strategies for academic and institutional campaigns</li>
-        <li>Supported SEO research, digital outreach, and performance tracking</li>
-      </ul>
+
+<!-- ABOUT & SKILLS -->
+<section class="about-section" id="about">
+  <div class="section-header fade-up">
+    <div class="section-number">01</div>
+    <div class="section-title-group">
+      <div class="section-eyebrow">About Me</div>
+      <h2>Engineer by craft,<br>builder by instinct</h2>
     </div>
- 
-    <div class="exp-item">
-      <p class="exp-meta">May 2025 – Jul 2025</p>
-      <p class="exp-role">AI Consultant & Content Specialist</p>
-      <p class="exp-org">AI Work Mackaut · NERIST, Arunachal Pradesh</p>
-      <ul class="exp-bullets">
-        <li>Consulted on AI tool adoption and GenAI workflow design for institutional marketing</li>
-        <li>Applied ChatGPT and AI tools for content generation, copywriting, and automation</li>
-        <li>Assisted in digital marketing campaigns, keyword research, and content planning</li>
-      </ul>
-    </div>
- 
-    <div class="exp-item">
-      <p class="exp-meta">2024 · 3 months</p>
-      <p class="exp-role">Analytics & Reporting Intern</p>
-      <p class="exp-org">Indian Oil Corporation Ltd (IOCL)</p>
-      <ul class="exp-bullets">
-        <li>Assisted with reporting and documentation in an operational analytics environment</li>
-        <li>Supported performance tracking using operational dashboards</li>
-        <li>Contributed to documentation and process optimization workflows</li>
-      </ul>
-    </div>
- 
-    <div class="exp-item">
-      <p class="exp-meta">2023 – Present</p>
-      <p class="exp-role">Freelance Frontend Developer & Digital Marketing Specialist</p>
-      <p class="exp-org">Self-Employed</p>
-      <ul class="exp-bullets">
-        <li>Designed and developed responsive frontend interfaces using HTML, CSS, and JavaScript</li>
-        <li>Built and customized WordPress websites with SEO best practices</li>
-        <li>Managed social media content, email campaigns, and analytics reporting for clients</li>
-        <li>Produced AI-assisted blog and marketing content using ChatGPT and GenAI workflows</li>
-      </ul>
-    </div>
- 
+    <div class="divider-line"></div>
   </div>
-</section>
- 
-<!-- SKILLS -->
-<section id="skills" class="container" style="padding-top: 0;">
-  <p class="sec-label">Skills</p>
-  <div class="skills-grid">
- 
-    <div class="skill-group">
-      <p class="skill-group-name">Web Analytics</p>
-      <div class="skill-list">
-        <span class="skill-item">Google Analytics 4</span>
-        <span class="skill-item">Search Console</span>
-        <span class="skill-item">Looker Studio</span>
-        <span class="skill-item">UTM Tracking</span>
-        <span class="skill-item">Core Web Vitals</span>
-      </div>
-    </div>
- 
-    <div class="skill-group">
-      <p class="skill-group-name">Frontend Dev</p>
-      <div class="skill-list">
-        <span class="skill-item">HTML / CSS</span>
-        <span class="skill-item">JavaScript</span>
-        <span class="skill-item">Responsive Design</span>
-        <span class="skill-item">WordPress</span>
-        <span class="skill-item">Website Optimization</span>
-      </div>
-    </div>
- 
-    <div class="skill-group">
-      <p class="skill-group-name">AI & Content</p>
-      <div class="skill-list">
-        <span class="skill-item">AI Consulting</span>
-        <span class="skill-item">Prompt Engineering</span>
-        <span class="skill-item">ChatGPT / GenAI</span>
-        <span class="skill-item">Content Writing</span>
-        <span class="skill-item">Blog / SEO Writing</span>
-      </div>
-    </div>
- 
-    <div class="skill-group">
-      <p class="skill-group-name">Marketing & SEO</p>
-      <div class="skill-list">
-        <span class="skill-item">On-page SEO</span>
-        <span class="skill-item">Keyword Research</span>
-        <span class="skill-item">Social Media Mktg</span>
-        <span class="skill-item">Email Marketing</span>
-        <span class="skill-item">Google Ads</span>
-      </div>
-    </div>
- 
-    <div class="skill-group">
-      <p class="skill-group-name">Tools</p>
-      <div class="skill-list">
-        <span class="skill-item">Python</span>
-        <span class="skill-item">GTmetrix</span>
-        <span class="skill-item">Ahrefs / SEMrush</span>
-        <span class="skill-item">Canva</span>
-        <span class="skill-item">Meta Business Suite</span>
-      </div>
-    </div>
- 
-  </div>
-</section>
- 
-<!-- ABOUT -->
-<section id="about" class="container" style="padding-top: 0;">
-  <p class="sec-label">About</p>
+
   <div class="about-grid">
-    <div class="about-text">
-      <p>Hi, I'm Tanisha Roy — a B.Tech Computer Science student from India working at the intersection of frontend development, web analytics, AI consulting, and digital marketing.</p>
-      <p>I've served as an AI Consultant at NERIST through AI Work Mackaut across two terms, advising institutional teams on GenAI tool adoption, prompt engineering, and content automation. I also completed an internship at Indian Oil Corporation Ltd in analytics and reporting.</p>
-      <p>As a freelance developer and marketer since 2023, I build responsive web interfaces and deliver end-to-end digital solutions — from UI design and WordPress development to SEO audits, analytics setup, and AI content workflows.</p>
-      <p>My Computer Science background lets me bridge the technical and creative sides of every project. I'm available for remote, part-time, and project-based work.</p>
+    <div class="about-text fade-up">
+      <p>
+        I'm a Software Engineer with a B.Tech in Computer Science (AI specialization) from Sikkim Manipal Institute of Technology. With hands-on experience across three industry internships — from enterprise petroleum systems at IOCL to cutting-edge research engineering at NERIST — I've built a well-rounded foundation in full-stack development and intelligent systems.
+      </p>
+      <p>
+        Since 2024, I've independently designed and delivered 5+ production-ready web products as a freelancer, handling everything from requirements to deployment. I thrive in fast-paced environments and bring a designer's eye to every technical problem.
+      </p>
+      <p>
+        Currently deepening my expertise in Web3/Blockchain while remaining fluent across React, Next.js, Node.js, Python, and cloud infrastructure. Available for full-time remote engagement.
+      </p>
     </div>
-    <div class="about-stats">
-      <div class="stat-box">
-        <p class="stat-num">2+</p>
-        <p class="stat-label">Years freelance</p>
+
+    <div class="skills-grid fade-up">
+      <div class="skill-card">
+        <div class="skill-category">Frontend</div>
+        <div class="skill-tags">
+          <span class="skill-tag">React.js</span>
+          <span class="skill-tag">Next.js</span>
+          <span class="skill-tag">TypeScript</span>
+          <span class="skill-tag">Tailwind CSS</span>
+          <span class="skill-tag">HTML5</span>
+          <span class="skill-tag">CSS3</span>
+        </div>
       </div>
-      <div class="stat-box">
-        <p class="stat-num">8</p>
-        <p class="stat-label">Projects</p>
+      <div class="skill-card">
+        <div class="skill-category">Backend</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Node.js</span>
+          <span class="skill-tag">Express.js</span>
+          <span class="skill-tag">REST APIs</span>
+          <span class="skill-tag">Python</span>
+        </div>
       </div>
-      <div class="stat-box">
-        <p class="stat-num">2</p>
-        <p class="stat-label">Internships</p>
+      <div class="skill-card">
+        <div class="skill-category">Data &amp; Cloud</div>
+        <div class="skill-tags">
+          <span class="skill-tag">PostgreSQL</span>
+          <span class="skill-tag">MongoDB</span>
+          <span class="skill-tag">Redis</span>
+          <span class="skill-tag">AWS</span>
+          <span class="skill-tag">Docker</span>
+          <span class="skill-tag">CI/CD</span>
+        </div>
       </div>
-      <div class="stat-box">
-        <p class="stat-num">4</p>
-        <p class="stat-label">Skill domains</p>
+      <div class="skill-card">
+        <div class="skill-category">AI / Emerging</div>
+        <div class="skill-tags">
+          <span class="skill-tag">LLM APIs</span>
+          <span class="skill-tag">ML Deployment</span>
+          <span class="skill-tag">Web3 Tooling</span>
+          <span class="skill-tag">Smart Contracts</span>
+        </div>
       </div>
     </div>
   </div>
 </section>
- 
+
+<!-- EXPERIENCE -->
+<section class="experience-section" id="experience">
+  <div class="section-header fade-up">
+    <div class="section-number">02</div>
+    <div class="section-title-group">
+      <div class="section-eyebrow">Work History</div>
+      <h2>Professional Experience</h2>
+    </div>
+    <div class="divider-line"></div>
+  </div>
+
+  <div class="timeline">
+
+    <div class="timeline-item fade-up">
+      <div class="timeline-left">
+        <div class="timeline-date">Jan 2026 – Jul 2026</div>
+        <div class="timeline-company">NERIST<br>North East Regional Institute of Science &amp; Technology</div>
+      </div>
+      <div class="timeline-right">
+        <div class="timeline-tag">Research Engineering</div>
+        <div class="timeline-role">Software &amp; Research Engineering Intern</div>
+        <ul class="timeline-points">
+          <li>Developed and maintained web-based research tools and dashboards using React and Next.js for the institute's engineering division.</li>
+          <li>Integrated AI/ML modules into existing research workflows using Python, improving data pipeline automation and analysis throughput.</li>
+          <li>Collaborated with senior engineers on database design, REST API development, and deployment pipeline architecture.</li>
+          <li>Applied Docker-based containerization and CI/CD practices to streamline project delivery and reduce deployment cycle times.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-up">
+      <div class="timeline-left">
+        <div class="timeline-date">May 2025 – Jul 2025</div>
+        <div class="timeline-company">MACKUT</div>
+      </div>
+      <div class="timeline-right">
+        <div class="timeline-tag">Software Engineering</div>
+        <div class="timeline-role">Software Engineering Intern</div>
+        <ul class="timeline-points">
+          <li>Designed and built responsive, performance-optimized frontend interfaces using React.js and TypeScript with measurable UX improvements.</li>
+          <li>Developed backend API endpoints in Node.js/Express, integrated with both relational and NoSQL databases.</li>
+          <li>Conducted web performance analysis and implemented optimizations that significantly enhanced page-load speeds and Core Web Vitals.</li>
+          <li>Participated in Agile sprint planning, code reviews, and Git-based collaborative development workflows.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-up">
+      <div class="timeline-left">
+        <div class="timeline-date">May 2024 – Jul 2024</div>
+        <div class="timeline-company">Indian Oil Corporation Ltd.<br>Digboi Refinery</div>
+      </div>
+      <div class="timeline-right">
+        <div class="timeline-tag">Technology &amp; Data</div>
+        <div class="timeline-role">Technology &amp; Data Engineering Intern</div>
+        <ul class="timeline-points">
+          <li>Gained industry exposure to enterprise-scale software systems and data management workflows at one of India's largest petroleum refineries.</li>
+          <li>Digitized and analyzed operational data using Python scripting and SQL queries, improving data accessibility for operational teams.</li>
+          <li>Contributed to internal web-based reporting tools and documented technical processes for knowledge transfer.</li>
+          <li>Observed enterprise cloud infrastructure and DevOps practices in large-scale production environments.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item fade-up">
+      <div class="timeline-left">
+        <div class="timeline-date">2024 – Present</div>
+        <div class="timeline-company">Self-Employed</div>
+      </div>
+      <div class="timeline-right">
+        <div class="timeline-tag">Freelance</div>
+        <div class="timeline-role">Full Stack Developer (Freelance)</div>
+        <ul class="timeline-points">
+          <li>Independently designed, developed, and deployed 5+ complete production-ready websites for clients across multiple industries.</li>
+          <li>Delivered end-to-end solutions: requirements gathering, UI/UX design, full-stack development, database setup, and hosting configuration.</li>
+          <li>Implemented web analytics and SEO strategies that drove measurable, sustained traffic growth for client properties.</li>
+          <li>Integrated third-party APIs, payment gateways (Stripe), and CMS platforms based on individual client requirements.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects-section" id="projects">
+  <div class="section-header fade-up">
+    <div class="section-number">03</div>
+    <div class="section-title-group">
+      <div class="section-eyebrow">Selected Work</div>
+      <h2>Projects &amp; Builds</h2>
+    </div>
+    <div class="divider-line"></div>
+  </div>
+
+  <div class="projects-grid">
+
+    <div class="project-card fade-up">
+      <div class="project-number">01</div>
+      <div class="project-type">Freelance · Full Stack</div>
+      <div class="project-title">E-Commerce Platform with Admin Suite</div>
+      <div class="project-desc">
+        Production-ready e-commerce solution featuring dynamic product catalogue, cart management, Stripe payment integration, and a comprehensive admin dashboard. Deployed on AWS with a full CI/CD pipeline for zero-downtime releases.
+      </div>
+      <div class="project-stack">
+        <span class="stack-tag">React.js</span>
+        <span class="stack-tag">Node.js</span>
+        <span class="stack-tag">PostgreSQL</span>
+        <span class="stack-tag">Stripe API</span>
+        <span class="stack-tag">AWS</span>
+        <span class="stack-tag">Docker</span>
+      </div>
+    </div>
+
+    <div class="project-card fade-up">
+      <div class="project-number">02</div>
+      <div class="project-type">Personal · AI/ML</div>
+      <div class="project-title">AI-Powered Content Generation App</div>
+      <div class="project-desc">
+        Full-stack application integrating the OpenAI API to provide intelligent, context-aware content generation. Modern Next.js frontend paired with a containerized Python backend, deployed with Docker Compose for reliable horizontal scaling.
+      </div>
+      <div class="project-stack">
+        <span class="stack-tag">Next.js</span>
+        <span class="stack-tag">Python</span>
+        <span class="stack-tag">OpenAI API</span>
+        <span class="stack-tag">Docker</span>
+        <span class="stack-tag">TypeScript</span>
+      </div>
+    </div>
+
+    <div class="project-card fade-up">
+      <div class="project-number">03</div>
+      <div class="project-type">Freelance · Analytics</div>
+      <div class="project-title">Web Analytics &amp; SEO Dashboard</div>
+      <div class="project-desc">
+        Custom analytics platform aggregating data from Google Analytics and multiple additional sources, delivering real-time insights on user behavior, page performance, and SEO metrics. Used actively by clients to track growth.
+      </div>
+      <div class="project-stack">
+        <span class="stack-tag">React.js</span>
+        <span class="stack-tag">Google Analytics API</span>
+        <span class="stack-tag">Node.js</span>
+        <span class="stack-tag">Chart.js</span>
+      </div>
+    </div>
+
+    <div class="project-card fade-up">
+      <div class="project-number">04</div>
+      <div class="project-type">Internship · Research</div>
+      <div class="project-title">AI/ML Research Workflow Integration</div>
+      <div class="project-desc">
+        Developed data pipelines and web dashboards for NERIST's engineering research division. Integrated Python ML modules into existing workflows, reducing manual analysis time and enabling real-time research monitoring.
+      </div>
+      <div class="project-stack">
+        <span class="stack-tag">Python</span>
+        <span class="stack-tag">React</span>
+        <span class="stack-tag">Next.js</span>
+        <span class="stack-tag">PostgreSQL</span>
+        <span class="stack-tag">Docker</span>
+      </div>
+    </div>
+
+    <div class="project-card fade-up">
+      <div class="project-number">05</div>
+      <div class="project-type">Freelance · Full Stack</div>
+      <div class="project-title">Multi-Tenant SaaS Business Platform</div>
+      <div class="project-desc">
+        Architected and delivered a multi-tenant business management platform for a services firm, featuring role-based access control, CMS integration, invoice generation, and client portal. Maintained post-launch with 99.9% uptime.
+      </div>
+      <div class="project-stack">
+        <span class="stack-tag">Next.js</span>
+        <span class="stack-tag">Node.js</span>
+        <span class="stack-tag">MongoDB</span>
+        <span class="stack-tag">Redis</span>
+        <span class="stack-tag">AWS</span>
+      </div>
+    </div>
+
+    <div class="project-card fade-up">
+      <div class="project-number">06</div>
+      <div class="project-type">Personal · DevOps</div>
+      <div class="project-title">Automated Deployment &amp; Monitoring Pipeline</div>
+      <div class="project-desc">
+        Built a full CI/CD pipeline using GitHub Actions for automated testing, building, and deployment to AWS. Includes containerized microservices, health monitoring, and automated rollback on failed deployments.
+      </div>
+      <div class="project-stack">
+        <span class="stack-tag">GitHub Actions</span>
+        <span class="stack-tag">Docker</span>
+        <span class="stack-tag">AWS EC2</span>
+        <span class="stack-tag">Nginx</span>
+        <span class="stack-tag">Node.js</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section class="education-section" id="education">
+  <div class="section-header fade-up">
+    <div class="section-number">04</div>
+    <div class="section-title-group">
+      <div class="section-eyebrow">Academic Background</div>
+      <h2 style="color: var(--marble-white);">Education</h2>
+    </div>
+    <div class="divider-line" style="background: linear-gradient(90deg, rgba(255,255,255,0.12), transparent);"></div>
+  </div>
+
+  <div class="edu-card fade-up">
+    <div>
+      <div class="edu-degree">B.Tech in Computer Science &amp; Engineering<br><em style="font-style:italic; color: var(--gold-light); font-size: 0.9em;">Major: Artificial Intelligence</em></div>
+      <div class="edu-institution">Sikkim Manipal Institute of Technology (SMIT)</div>
+
+    </div>
+    <div class="edu-courses">
+      <div class="edu-courses-label">Relevant Coursework</div>
+      <div class="course-item">Machine Learning &amp; Deep Learning</div>
+      <div class="course-item">Data Structures &amp; Algorithms</div>
+      <div class="course-item">Database Management Systems</div>
+      <div class="course-item">Web Technologies</div>
+      <div class="course-item">Cloud Computing</div>
+      <div class="course-item">Software Engineering</div>
+      <div class="course-item" style="margin-top: 0.8rem; color: var(--gold-light);">Final Project: AI/ML Application with Real-World Deployment</div>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
-<div id="contact" class="contact-bar">
-  <h2>Let's work together.</h2>
-  <div class="contact-links">
-    <a class="contact-link" href="mailto:tanisha@email.com">
-      <i class="ti ti-mail" aria-hidden="true"></i> Email me
+<section class="contact-section" id="contact">
+  <div class="contact-eyebrow fade-up">Get In Touch</div>
+  <h2 class="contact-heading fade-up">Let's build something<br><em style="font-style:italic; color: var(--marble-mid);">extraordinary</em></h2>
+  <p class="contact-sub fade-up">
+    Available for full-time remote roles and exciting freelance projects. Open to international team environments and fast-paced startup culture.
+  </p>
+  <div class="contact-links fade-up">
+    <a href="mailto:tanisharoy466@gmail.com" class="contact-link">
+      <span class="contact-link-label">Email</span>
+      <span class="contact-link-value">tanisharoy466@gmail.com</span>
     </a>
-    <a class="contact-link" href="https://linkedin.com/in/tanisha-roy" target="_blank">
-      <i class="ti ti-brand-linkedin" aria-hidden="true"></i> LinkedIn
+    <a href="tel:+918617875594" class="contact-link">
+      <span class="contact-link-label">Phone</span>
+      <span class="contact-link-value">+91 8617875594</span>
     </a>
-    <a class="contact-link" href="https://github.com/tanisharoy222005-collab" target="_blank">
-      <i class="ti ti-brand-github" aria-hidden="true"></i> GitHub
+    <a href="https://www.linkedin.com/in/tanisha-roy-1826a6391" target="_blank" class="contact-link">
+      <span class="contact-link-label">LinkedIn</span>
+      <span class="contact-link-value">tanisha-roy-1826a6391</span>
+    </a>
+    <a href="https://github.com/tanisharoy222005-collab" target="_blank" class="contact-link">
+      <span class="contact-link-label">GitHub</span>
+      <span class="contact-link-value">tanisharoy222005-collab</span>
     </a>
   </div>
-</div>
- 
+</section>
+
 <!-- FOOTER -->
 <footer>
-  <span class="footer-name">Tanisha Roy · 2025</span>
-  <span class="footer-copy">Frontend Dev · AI Consultant · Web Analyst</span>
+  <div class="footer-name">Tanisha Roy &nbsp;·&nbsp; Software Engineer</div>
+  <div class="footer-note">Full Stack &nbsp;·&nbsp; AI/ML &nbsp;·&nbsp; Web3</div>
 </footer>
- 
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
 </body>
 </html>
